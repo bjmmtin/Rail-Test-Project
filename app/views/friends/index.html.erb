@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Friends" %>
+
+<h1>Friends</h1>
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Twitter</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @friends.each do |friend| %>
+      <tr>
+        <th><%= friend.first_name %></th>
+        <td><%= friend.last_name %></td>
+        <td><%= friend.email %></td>
+        <td><%= friend.twitter %></td>
+        <td>
+          <%= link_to "Show this friend", friend, class:"btn btn-outline-success" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div id="friends">
+</div>
+
+<%= link_to "New friend", new_friend_path, class:"btn btn-secondary" %>
